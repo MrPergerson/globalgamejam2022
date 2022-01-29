@@ -1,18 +1,43 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class InputManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public InputData input;
+
+    private PlayerControls playerControls;
+    private PlayerInput playerInput;
+
+    void Awake()
     {
-        
+        playerControls = new PlayerControls();
+        input.playerControls = playerControls.Player;
+        playerInput = GetComponent<PlayerInput>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnEnable()
     {
-        
+        playerControls.Enable();
+
+        playerInput.onControlsChanged += UpdateCurrentDevice;
+    }
+
+    private void OnDisable()
+    {
+        playerControls.Disable();
+    }
+
+    private void Update()
+    {
+        input.move = playerControls.Player.Move.ReadValue<Vector2>();
+        input.look = playerControls.Player.Look.ReadValue<Vector2>();
+    }
+
+
+    private void UpdateCurrentDevice(PlayerInput playerInput)
+    {
+        input.usingGamepad = playerInput.currentControlScheme.Equals("Gamepad") ? true : false;
     }
 }
