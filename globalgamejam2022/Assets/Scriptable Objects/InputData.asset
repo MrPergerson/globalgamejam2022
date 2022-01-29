@@ -13,3 +13,6 @@ MonoBehaviour:
   m_Name: InputData
   m_EditorClassIdentifier: 
   playerInput: {fileID: 0}
+  move: {x: 0, y: 0}
+  look: {x: 0, y: 0}
+  usingGamepad: 0
