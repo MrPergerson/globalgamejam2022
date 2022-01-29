@@ -163,7 +163,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""path"": ""<Gamepad>/leftStick"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Controller"",
+                    ""groups"": ""GamePad"",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -185,7 +185,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""path"": ""<Gamepad>/rightStick"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Controller"",
+                    ""groups"": ""GamePad"",
                     ""action"": ""Look"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -211,8 +211,8 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
             ]
         },
         {
-            ""name"": ""Controller"",
-            ""bindingGroup"": ""Controller"",
+            ""name"": ""GamePad"",
+            ""bindingGroup"": ""GamePad"",
             ""devices"": [
                 {
                     ""devicePath"": ""<Gamepad>"",
@@ -332,13 +332,13 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
             return asset.controlSchemes[m_MouseandKeyboardSchemeIndex];
         }
     }
-    private int m_ControllerSchemeIndex = -1;
-    public InputControlScheme ControllerScheme
+    private int m_GamePadSchemeIndex = -1;
+    public InputControlScheme GamePadScheme
     {
         get
         {
-            if (m_ControllerSchemeIndex == -1) m_ControllerSchemeIndex = asset.FindControlSchemeIndex("Controller");
-            return asset.controlSchemes[m_ControllerSchemeIndex];
+            if (m_GamePadSchemeIndex == -1) m_GamePadSchemeIndex = asset.FindControlSchemeIndex("GamePad");
+            return asset.controlSchemes[m_GamePadSchemeIndex];
         }
     }
     public interface IPlayerActions

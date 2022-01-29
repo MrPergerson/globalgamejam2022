@@ -431,6 +431,7 @@ GameObject:
   - component: {fileID: 1202509224}
   - component: {fileID: 1202509225}
   - component: {fileID: 1202509226}
+  - component: {fileID: 1202509227}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -468,7 +469,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   move: {x: 0, y: 0}
   look: {x: 0, y: 0}
-  usingGamepad: 0
+  usingController: 0
+  rigiBod: {fileID: 1202509225}
+  playerSpeed: 0
+  lookingDirection: {x: 0, y: 0, z: 0}
+  updateRotation: {x: 0, y: 0, z: 0, w: 0}
   rotationSmoothing: 1000
 --- !u!50 &1202509225
 Rigidbody2D:
@@ -529,6 +534,21 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &1202509227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1202509222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dafd597590c9624fa5baf52d7448836, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  horizontalInput: 0
+  verticalInput: 0
+  playerSpeed: 15
 --- !u!1 &1213684930
 GameObject:
   m_ObjectHideFlags: 0
