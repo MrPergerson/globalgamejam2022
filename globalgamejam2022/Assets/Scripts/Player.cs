@@ -17,6 +17,8 @@ public class Player : MonoBehaviour
     //[SerializeField] private float controllerDeadZone = 0.1f;
     [SerializeField] private float rotationSmoothing = 1000.0f;
 
+    public FlashLight flash;
+
     //  TEST: temp attribs for debugging
     public Vector3 lookingDirection;
     public Quaternion updateRotation;
@@ -29,6 +31,7 @@ public class Player : MonoBehaviour
         playerInput = GetComponent<PlayerInput>();
         rigiBod = GetComponent<Rigidbody2D>();
         playerSpeed = 5.0f;
+        flash.SetOrigin(transform.position);
     }
 
     private void OnEnable()
@@ -49,8 +52,9 @@ public class Player : MonoBehaviour
         move = playerControls.Player.Move.ReadValue<Vector2>();
         look = playerControls.Player.Look.ReadValue<Vector2>();
         rigiBod.MovePosition (((Vector2) transform.position) + (move * playerSpeed * Time.fixedDeltaTime));
-
-
+        //flash.SetOrigin(transform.position);
+        //flash.SetAimDirection(look);
+        /*
         //Debug.Log("Executed the FixedUpdate");
         // FIX ME: FIX THIS FOR ROTATION INPUT
         if (usingGamepad)
@@ -76,9 +80,15 @@ public class Player : MonoBehaviour
 
             }
         }
-
+        */
     }
 
+    public void Update()
+    {
+        flash.SetOrigin(transform.position);
+        flash.SetAimDirection(look);
+
+    }
     // SHAHBAZ: Changed to public so that the InputManager Game object can access it easily
     public void UpdateCurrentDevice(PlayerInput playerInput)
     {
