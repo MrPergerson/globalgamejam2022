@@ -12,6 +12,7 @@ public class FlashLight : MonoBehaviour
     [SerializeField] int rayCount = 20;
     Vector3 origin;
     private float startingAngle;
+    [SerializeField] bool isStatic = false;
 
     private void Start()
     {
@@ -22,7 +23,11 @@ public class FlashLight : MonoBehaviour
 
     private void LateUpdate()
     {
-
+        if(isStatic)
+        {
+            SetOrigin(transform.position);
+            SetAimDirection(new Vector3(1, 0));
+        }
         float angle = startingAngle;
         float angleIncrease = fov / rayCount;
 
@@ -37,7 +42,7 @@ public class FlashLight : MonoBehaviour
         for(int i = 0; i <= rayCount; i++)
         {
             Vector3 vertex;
-            RaycastHit2D raycastHit2D = Physics2D.Raycast(origin, GetVectorFromAngle(angle) * viewDistance, layerMask);
+            RaycastHit2D raycastHit2D = Physics2D.Raycast(origin, GetVectorFromAngle(angle), viewDistance, layerMask);
             if(raycastHit2D.collider == null)
             {
                 // no hit
