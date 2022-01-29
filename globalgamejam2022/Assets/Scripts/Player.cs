@@ -17,6 +17,8 @@ public class Player : MonoBehaviour
     //[SerializeField] private float controllerDeadZone = 0.1f;
     [SerializeField] private float rotationSmoothing = 1000.0f;
 
+    public FlashLight flash;
+
     //  TEST: temp attribs for debugging
     public Vector3 lookingDirection;
     public Quaternion updateRotation;
@@ -29,6 +31,11 @@ public class Player : MonoBehaviour
         playerInput = GetComponent<PlayerInput>();
         rigiBod = GetComponent<Rigidbody2D>();
         playerSpeed = 5.0f;
+    }
+
+    private void Start()
+    {
+        flash.SetOrigin (transform.position);
     }
 
     private void OnEnable()
@@ -50,7 +57,9 @@ public class Player : MonoBehaviour
         look = playerControls.Player.Look.ReadValue<Vector2>();
         rigiBod.MovePosition (((Vector2) transform.position) + (move * playerSpeed * Time.fixedDeltaTime));
 
-
+        flash.SetOrigin(transform.position);
+        flash.SetAimDirection(look);
+        /*
         //Debug.Log("Executed the FixedUpdate");
         // FIX ME: FIX THIS FOR ROTATION INPUT
         if (usingGamepad)
@@ -61,7 +70,7 @@ public class Player : MonoBehaviour
             // TEST: is 'Vector3.right' and 'Vector3.forward' in the tutorial
             // Vector3 lookingDirection = (Vector3.right * look.x) + (Vector3.forward * look.y);
             lookingDirection = (Vector3.right * look.x) + (Vector3.forward * look.y);
-
+            
             if (lookingDirection.sqrMagnitude > 0.0f)
             {
                 // TEST: is 'Vector3.up' in the tutorial
@@ -76,7 +85,7 @@ public class Player : MonoBehaviour
 
             }
         }
-
+        */
     }
 
     // SHAHBAZ: Changed to public so that the InputManager Game object can access it easily
