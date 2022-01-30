@@ -94,12 +94,13 @@ public class GameManager : MonoBehaviour
 
     public void CloseApplication()
     {
-
+        Application.Quit();
     }
 
     public void GoToMainMenu()
     {
-        StartCoroutine(LoadLevel("MainMenu"));
+        Time.timeScale = 1;
+        SceneManager.LoadScene("MainMenu");
 
     }
 
