@@ -34,6 +34,11 @@ public class Player : MonoBehaviour
         flash.SetOrigin(transform.position);
     }
 
+    private void Start()
+    {
+        flash.SetOrigin (transform.position);
+    }
+
     private void OnEnable()
     {
         playerControls.Enable();
@@ -65,7 +70,7 @@ public class Player : MonoBehaviour
             // TEST: is 'Vector3.right' and 'Vector3.forward' in the tutorial
             // Vector3 lookingDirection = (Vector3.right * look.x) + (Vector3.forward * look.y);
             lookingDirection = (Vector3.right * look.x) + (Vector3.forward * look.y);
-
+            
             if (lookingDirection.sqrMagnitude > 0.0f)
             {
                 // TEST: is 'Vector3.up' in the tutorial
