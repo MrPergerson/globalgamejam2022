@@ -637,7 +637,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 13.5, y: 87}
-  m_SizeDelta: {x: 510.6, y: 75.7}
+  m_SizeDelta: {x: 586.8, y: 75.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &881096794
 MonoBehaviour:
@@ -659,7 +659,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: You made it!
+  m_text: Your shift is over
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: eaba4cefeaad6ce4d96ee73dce316902, type: 2}
   m_sharedMaterial: {fileID: 1399431835396254628, guid: eaba4cefeaad6ce4d96ee73dce316902, type: 2}
@@ -686,8 +686,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 91.58
-  m_fontSizeBase: 91.58
+  m_fontSize: 76.77
+  m_fontSizeBase: 76.77
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1121,8 +1121,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 13.5, y: 1}
-  m_SizeDelta: {x: 510.6, y: 75.7}
+  m_AnchoredPosition: {x: 13.5, y: 11.1}
+  m_SizeDelta: {x: 328.7, y: 75.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1383830675
 MonoBehaviour:
@@ -1171,8 +1171,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 57.7
-  m_fontSizeBase: 57.7
+  m_fontSize: 31.1
+  m_fontSizeBase: 31.1
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1325,6 +1325,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d815e7e81c780d4c999bfe10e4cff6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pauseMenu: {fileID: 0}
+  gameOverMenu: {fileID: 0}
+  generatorsActive: 0
+  generatorsNeededToBeActive: 0
 --- !u!4 &1883777515
 Transform:
   m_ObjectHideFlags: 0

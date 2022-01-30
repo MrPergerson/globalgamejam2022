@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
 
     public GameObject pauseMenu;
+    public GameObject gameOverMenu;
 
     private PlayerControls playerControls;
     public bool isPaused { get; private set; }
@@ -47,7 +48,14 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene("art test");
+        SceneManager.LoadScene("Level 01");
+        Time.timeScale = 1;
+    }
+
+    public void RestartGame()
+    {
+        var currentScene = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(currentScene);
         Time.timeScale = 1;
     }
 
@@ -60,9 +68,17 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        print("load");
-        SceneManager.LoadScene("GameOver");
-        Time.timeScale = 1;
+        if (gameOverMenu)
+        {
+
+            isPaused = true;
+            gameOverMenu.SetActive(true);
+            Time.timeScale = 0;
+        }
+        else
+        {
+            print("Game over: there is no game over menu!");
+        }
     }
 
     public void CloseApplication()
@@ -93,7 +109,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            print("there is no pause menu!");
+            print("Paused game: there is no pause menu!");
         }
     }
 
