@@ -134,7 +134,7 @@ public class Player : MonoBehaviour
             Robot temp = other.gameObject.GetComponent<Robot>(); 
             if (!temp.getState())
             {
-                GameManager.Instance.EndGame();
+                GameManager.Instance.GameOver();
             }
         }
     }
