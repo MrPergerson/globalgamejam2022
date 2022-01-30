@@ -14,6 +14,7 @@ public class DummyPlayer : MonoBehaviour
         playerControls = new PlayerControls();
     }
 
+
     // Update is called once per frame
     void Update()
     {
