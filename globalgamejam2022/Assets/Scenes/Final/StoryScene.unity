@@ -225,7 +225,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameText: {fileID: 0}
   dialogueText: {fileID: 1540413283}
-  sceneToTransitionTo: art test
+  sceneToTransitionTo: Level 01
 --- !u!1 &503061806
 GameObject:
   m_ObjectHideFlags: 0
@@ -683,6 +683,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 0}
+  gameOverMenu: {fileID: 0}
+  generatorsActive: 0
+  generatorsNeededToBeActive: 0
 --- !u!4 &1264851075
 Transform:
   m_ObjectHideFlags: 0
