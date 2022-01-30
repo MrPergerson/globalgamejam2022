@@ -7,23 +7,37 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
+    [Header("UI")]
     public GameObject pauseMenu;
     public GameObject gameOverMenu;
+    [SerializeField] private float sceneTransitionTime = 1;
+    [SerializeField] private Animator sceneTransition;
 
     private PlayerControls playerControls;
     public bool isPaused { get; private set; }
 
+    [Header("Generators")]
     [SerializeField] private int generatorsActive = 0;
     [SerializeField] private int generatorsNeededToBeActive = 0;
+
+    
 
     private void Awake()
     {
         playerControls = new PlayerControls();
         playerControls.Player.Pause.performed += PauseGame;
+        if(sceneTransition) 
+            sceneTransition.gameObject.SetActive(true);
+        else
+        {
+            Debug.LogWarning("Crossfade animator is not assigned to gamemanager");
+        }
     }
 
     private void Start()
     {
+        
+
         FindAllGeneratorsInScene();
 
         if(Instance != null && Instance == this)
@@ -48,22 +62,18 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene("Level 01");
-        Time.timeScale = 1;
+        StartCoroutine(LoadLevel("Level 01"));
     }
 
     public void RestartGame()
     {
         var currentScene = SceneManager.GetActiveScene().buildIndex;
-        SceneManager.LoadScene(currentScene);
-        Time.timeScale = 1;
+        StartCoroutine(LoadLevel(currentScene));
     }
 
     public void EndGame()
     {
-        print("load");
-        SceneManager.LoadScene("GameEnd");
-        Time.timeScale = 1;
+        StartCoroutine(LoadLevel("EndGame"));
     }
 
     public void GameOver()
@@ -88,14 +98,15 @@ public class GameManager : MonoBehaviour
 
     public void GoToMainMenu()
     {
-        SceneManager.LoadScene("MainMenu");
-        Time.timeScale = 1;
+        StartCoroutine(LoadLevel("MainMenu"));
+
     }
 
     public void LoadScene(string scene)
     {
-        SceneManager.LoadScene(scene);
-        Time.timeScale = 1;
+
+        StartCoroutine(LoadLevel(scene));
+        
     }
 
     public void PauseGame(InputAction.CallbackContext context)
@@ -149,5 +160,25 @@ public class GameManager : MonoBehaviour
             var currentScene = SceneManager.GetActiveScene().buildIndex;
             SceneManager.LoadScene(currentScene + 1);
         }
+    }
+
+    IEnumerator LoadLevel(int levelIndex)
+    {
+        sceneTransition.SetTrigger("Start");
+
+        yield return new WaitForSecondsRealtime(sceneTransitionTime);
+
+        Time.timeScale = 1;
+        SceneManager.LoadScene(levelIndex);
+    }
+
+    IEnumerator LoadLevel(string scene)
+    {
+        sceneTransition.SetTrigger("Start");
+
+        yield return new WaitForSecondsRealtime(sceneTransitionTime);
+
+        Time.timeScale = 1;
+        SceneManager.LoadScene(scene);
     }
 }

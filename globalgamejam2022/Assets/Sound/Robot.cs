@@ -11,7 +11,7 @@ public class Robot : MonoBehaviour
     [SerializeField] private bool isVisible;
     private float seenProgress;
     private float timeInIdle;
-    [SerializeField] private float flashLightTolerance = 2;
+    [SerializeField] private float flashLightTolerance = 1;
     [SerializeField] private float maxTimeInIdle = 8;
 
     [SerializeField] private SpriteRenderer spriteRender;
@@ -54,7 +54,7 @@ public class Robot : MonoBehaviour
             if (!isVisible)
             {
                 resetConstraint();
-                enim.SetBool("isHunting", true);
+                
                 Vector2 heading = player.transform.position - transform.position;
                 var distance = heading.magnitude; // this is a slow calcuation
                 var direction = heading / distance;
@@ -66,15 +66,15 @@ public class Robot : MonoBehaviour
             {
                 seenProgress += Time.deltaTime;
                 rb.constraints = RigidbodyConstraints2D.FreezeAll;
-                enim.SetBool("isHunting", false);
+                
             }
 
             if(seenProgress > flashLightTolerance)
             {
-                print("isIdle");
                 isHunting = false;
                 timeInIdle = 0;
                 spriteRender.material = idleMaterial;
+                enim.SetBool("isHunting", false);
                 return;
             }
         }
@@ -82,16 +82,15 @@ public class Robot : MonoBehaviour
         {
             if (timeInIdle >= maxTimeInIdle)
             {
-                print("isHunting");
                 isHunting = true;
                 seenProgress = 0;
                 spriteRender.material = huntingMaterial;
+                enim.SetBool("isHunting", true);
                 return;
             }
 
             timeInIdle += Time.deltaTime;
             rb.constraints = RigidbodyConstraints2D.FreezeAll;
-            enim.SetBool("isHunting", false);
         }
 
     }
