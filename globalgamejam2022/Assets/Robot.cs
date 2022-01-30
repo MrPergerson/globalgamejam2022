@@ -40,7 +40,7 @@ public class Robot : MonoBehaviour
         if (!isVisible)
         {
             resetConstraint();
-            // enim.SetBool("isHunting", true);
+            enim.SetBool("isHunting", true);
             Vector2 heading = player.transform.position - transform.position;
             var distance = heading.magnitude; // this is a slow calcuation
             var direction = heading / distance;
@@ -51,7 +51,7 @@ public class Robot : MonoBehaviour
         if (isVisible)
         {
             rb.constraints = RigidbodyConstraints2D.FreezeAll;
-            // enim.SetBool("isHunting", false);
+            enim.SetBool("isHunting", false);
         }
 
     }
