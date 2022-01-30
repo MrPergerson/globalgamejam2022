@@ -88,6 +88,7 @@ public class Generator : MonoBehaviour
         player.pointLight.pointLightOuterRadius = 1.3f;
         player.fov.findingTargets = false;
         player.fov.ClearVisibleTargets();
+        player.fov.ClearVisibleEnemyObjects();
     }
 
     private void StopRepairing()
