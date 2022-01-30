@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.Rendering.Universal;
 using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
@@ -22,7 +23,11 @@ public class Player : MonoBehaviour
     //  TEST: temp attribs for debugging
     public Vector3 lookingDirection;
     public Quaternion updateRotation;
-    public float thirdRotVal; 
+    public float thirdRotVal;
+
+    public Light2D spotLight;
+    public Light2D pointLight;
+    public FieldofView fov;
     
 
     void Awake()

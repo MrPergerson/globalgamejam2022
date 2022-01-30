@@ -22,10 +22,10 @@ public class FieldofView : MonoBehaviour
 
     IEnumerator FindVisibleTargetsWithDelay(float delay)
     {
-        while(findingTargets)
+        while(true)
         {
             yield return new WaitForSeconds(delay);
-            FindVisibleTargets();
+            if(findingTargets) FindVisibleTargets();
         }
     }
 
@@ -68,5 +68,10 @@ public class FieldofView : MonoBehaviour
         var angle = angleInDegrees * Mathf.Deg2Rad;
 
         return new Vector2(Mathf.Sin(angle), Mathf.Cos(angle));
+    }
+
+    public void ClearVisibleTargets()
+    {
+        visibleTargets.Clear();
     }
 }
