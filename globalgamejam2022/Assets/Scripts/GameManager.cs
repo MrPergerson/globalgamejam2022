@@ -55,6 +55,13 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
     }
 
+    public void GameOver()
+    {
+        print("load");
+        SceneManager.LoadScene("GameOver");
+        Time.timeScale = 1;
+    }
+
     public void CloseApplication()
     {
 
