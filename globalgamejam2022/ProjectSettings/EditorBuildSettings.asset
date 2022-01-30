@@ -18,16 +18,16 @@ EditorBuildSettings:
     path: Assets/Scenes/Final/StoryScene.unity
     guid: 58976a26d41e31a44a588f21c045f465
   - enabled: 1
-    path: Assets/Scenes/Level 01.unity
+    path: Assets/Scenes/Final/Level 01.unity
     guid: de69be0011d77df419fb5a46d502a7b3
   - enabled: 1
-    path: Assets/Scenes/Level 02.unity
+    path: Assets/Scenes/Final/Level 02.unity
     guid: c4ce1aaca8bf83947ac589c8479ea749
   - enabled: 1
-    path: Assets/Scenes/Level 03.unity
+    path: Assets/Scenes/Final/Level 03.unity
     guid: 827430b39169f4740b4078d81a5aa9aa
   - enabled: 1
-    path: Assets/Scenes/Level 04.unity
+    path: Assets/Scenes/Final/Level 04.unity
     guid: f27a8765dc20dc24c80409741c7ad48e
   - enabled: 1
     path: Assets/Scenes/Final/GameEnd.unity
