@@ -123,8 +123,22 @@ public class Player : MonoBehaviour
     {
         // flash.SetOrigin(transform.position);
         // flash.SetAimDirection(look);
-
+        
     }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        Debug.Log("Player.cs: Player collision triggered!!!");
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            Robot temp = other.gameObject.GetComponent<Robot>(); 
+            if (!temp.getState())
+            {
+                GameManager.Instance.EndGame();
+            }
+        }
+    }
+
     // SHAHBAZ: Changed to public so that the InputManager Game object can access it easily
     public void UpdateCurrentDevice(PlayerInput playerInput)
     {
