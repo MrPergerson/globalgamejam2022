@@ -12,6 +12,9 @@ public class GameManager : MonoBehaviour
     private PlayerControls playerControls;
     public bool isPaused { get; private set; }
 
+    [SerializeField] private int generatorsActive = 0;
+    [SerializeField] private int generatorsNeededToBeActive = 0;
+
     private void Awake()
     {
         playerControls = new PlayerControls();
@@ -20,7 +23,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-
+        FindAllGeneratorsInScene();
 
         if(Instance != null && Instance == this)
         {
@@ -105,6 +108,30 @@ public class GameManager : MonoBehaviour
         else
         {
             print("there is no pause menu!");
+        }
+    }
+
+    public void FindAllGeneratorsInScene()
+    {
+        
+        var generators = FindObjectsOfType<Generator>();
+        generatorsNeededToBeActive = generators.Length;
+        foreach(var generator in generators)
+        {
+            generator.OnGeneratorRepaired += IncrementGeneratorsActiveCount;
+        }
+        
+    }
+
+    public void IncrementGeneratorsActiveCount()
+    {
+        generatorsActive++;
+
+        if(generatorsActive >= generatorsNeededToBeActive)
+        {
+            // will get next scene in the build list...assuming there is one
+            var currentScene = SceneManager.GetActiveScene().buildIndex;
+            SceneManager.LoadScene(currentScene + 1);
         }
     }
 }

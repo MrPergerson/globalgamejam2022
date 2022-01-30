@@ -158,18 +158,14 @@ MonoBehaviour:
     - Play as Diego, an independent contractor hired by San Francisco Dynamic Security.
       The company, on the verge of bankruptcy, spends their remaining resources into
       developing security androids designed to serve and protect the populace.
-    - "During a terrible thunder storm, the company\u2019s storage warehouse housing
-      the shipment is struck by lightning and loses power. Diego is sent to examine
-      the facility and the security bots. What began as a standard examination quickly
-      becomes a fight for survival against the very androids meant to protect. "
-    - The robots have gone in threat-analysis mode and will target any bio-organism
-      in the dark. This mode was meant to be turned on at night when the malls turn
-      off their lights to save energy. Shining a light on them however, makes the
-      robots think it is day/working hours and stops the threat-analysis mode.
-    - 'Upon discovering his ability to paralyze them with his flashlight, Diego realizes
+    - "During a terrible thunder storm, the company\u2019s storage warehouse is struck
+      by lightning and loses power. Diego is sent to examine the facility and the
+      security bots. What began as a standard examination quickly becomes a fight
+      for survival against the very androids meant to protect."
+    - "Upon discovering his ability to paralyze them with his flashlight, Diego realizes
       he must restore power and lights to the warehouse to stop them. Using speed
       and wits, Diego fights his way to the generators located throughout the warehouse
-      while evading the defective security bots. '
+      while evading the defective security bots. \r\n"
 --- !u!4 &60790844
 Transform:
   m_ObjectHideFlags: 0
@@ -686,6 +682,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d815e7e81c780d4c999bfe10e4cff6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pauseMenu: {fileID: 0}
 --- !u!4 &1264851075
 Transform:
   m_ObjectHideFlags: 0
