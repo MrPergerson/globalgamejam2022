@@ -129,6 +129,9 @@ MonoBehaviour:
   lookingDirection: {x: 0, y: 0, z: 0}
   updateRotation: {x: 0, y: 0, z: 0, w: 0}
   thirdRotVal: 0
+  spotLight: {fileID: 5173036824900140174}
+  pointLight: {fileID: 4966877827015070702}
+  fov: {fileID: 4679050245123258631}
 --- !u!50 &5114626027538925281
 Rigidbody2D:
   serializedVersion: 4
@@ -201,9 +204,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.12, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.35
 --- !u!1 &5114626029199442424
 GameObject:
   m_ObjectHideFlags: 0

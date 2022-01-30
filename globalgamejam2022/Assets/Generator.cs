@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Generator : MonoBehaviour
 {
     PlayerControls playerControls;
+    Player player;
 
     [Header("Status")]
     [SerializeField] float repairProgress = 0;
@@ -57,6 +58,11 @@ public class Generator : MonoBehaviour
         if(collision.tag == "Player")
         {
             isRepairing = true;
+            player = collision.gameObject.GetComponent<Player>();
+            player.spotLight.gameObject.SetActive(false);
+            player.pointLight.pointLightOuterRadius = 1.3f;
+            player.fov.findingTargets = false;
+            player.fov.ClearVisibleTargets();
         }
     }
 
@@ -65,10 +71,13 @@ public class Generator : MonoBehaviour
         if (collision.tag == "Player")
         {
             isRepairing = false;
+            player.spotLight.gameObject.SetActive(true);
+            player.pointLight.pointLightOuterRadius = 1f;
+            player.fov.findingTargets = true;
+            player = null;
+
         }
 
-        //repairProgress = 0;
-        //slider.value = repairProgress;
     }
 
 }
