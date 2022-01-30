@@ -68,7 +68,8 @@ public class GameManager : MonoBehaviour
     public void RestartGame()
     {
         var currentScene = SceneManager.GetActiveScene().buildIndex;
-        StartCoroutine(LoadLevel(currentScene));
+        Time.timeScale = 1;
+        SceneManager.LoadScene(currentScene);
     }
 
     public void EndGame()

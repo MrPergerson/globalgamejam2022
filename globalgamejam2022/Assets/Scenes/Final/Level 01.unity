@@ -1424,7 +1424,7 @@ PrefabInstance:
       objectReference: {fileID: 461862954}
     - target: {fileID: 4391675170618467546, guid: 38cdef6bfe74aa649bb687ebc7a52d43, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: GameOver
+      value: GoToMainMenu
       objectReference: {fileID: 0}
     - target: {fileID: 4391675171868226960, guid: 38cdef6bfe74aa649bb687ebc7a52d43, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -2456,6 +2456,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 461862954}
+    - target: {fileID: 7742775147691903564, guid: c508efd931bc9bc4e8969baa4e642396, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: GoToMainMenu
+      objectReference: {fileID: 0}
     - target: {fileID: 7742775148198691142, guid: c508efd931bc9bc4e8969baa4e642396, type: 3}
       propertyPath: m_Name
       value: GameOverMenu
