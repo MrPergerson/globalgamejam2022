@@ -40,29 +40,16 @@ public class Generator : MonoBehaviour
 
     private void Update()
     {
-        if(!isRepaired && isRepairing)
-        {
-            repairProgress += repairSpeed * Time.deltaTime;
-            slider.value = repairProgress;
-
-            if (repairProgress >= 100)
-            {
-                isRepaired = true;
-                OnGeneratorRepaired?.Invoke();
-            }
-        }
+        Repair();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.tag == "Player")
         {
-            isRepairing = true;
-            player = collision.gameObject.GetComponent<Player>();
-            player.spotLight.gameObject.SetActive(false);
-            player.pointLight.pointLightOuterRadius = 1.3f;
-            player.fov.findingTargets = false;
-            player.fov.ClearVisibleTargets();
+           
+            BeginRepairing(collision);
+            
         }
     }
 
@@ -70,14 +57,46 @@ public class Generator : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            isRepairing = false;
-            player.spotLight.gameObject.SetActive(true);
-            player.pointLight.pointLightOuterRadius = 1f;
-            player.fov.findingTargets = true;
-            player = null;
+            StopRepairing();
 
         }
 
+    }
+    
+    private void Repair()
+    {
+        if (!isRepaired && isRepairing)
+        {
+            repairProgress += repairSpeed * Time.deltaTime;
+            slider.value = repairProgress;
+
+            if (repairProgress >= 1)
+            {
+ 
+                StopRepairing();
+                //OnGeneratorRepaired?.Invoke();
+                GameManager.Instance.EndGame();
+            }
+        }
+    }
+
+    private void BeginRepairing(Collider2D collision)
+    {
+        isRepairing = true;
+        player = collision.gameObject.GetComponent<Player>();
+        player.spotLight.gameObject.SetActive(false);
+        player.pointLight.pointLightOuterRadius = 1.3f;
+        player.fov.findingTargets = false;
+        player.fov.ClearVisibleTargets();
+    }
+
+    private void StopRepairing()
+    {
+        isRepairing = false;
+        player.spotLight.gameObject.SetActive(true);
+        player.pointLight.pointLightOuterRadius = 1f;
+        player.fov.findingTargets = true;
+        player = null;
     }
 
 }
