@@ -36,12 +36,12 @@ public class Player : MonoBehaviour
         playerInput = GetComponent<PlayerInput>();
         rigiBod = GetComponent<Rigidbody2D>();
         playerSpeed = 5.0f;
-        flash.SetOrigin(transform.position);
+        //flash.SetOrigin(transform.position);
     }
 
     private void Start()
     {
-        flash.SetOrigin (transform.position);
+        //flash.SetOrigin (transform.position);
     }
 
     private void OnEnable()
@@ -56,6 +56,12 @@ public class Player : MonoBehaviour
         playerControls.Disable();
     }
 
+    /**
+     * Fixed Update
+     *  - handles player movement
+     *  - handles player torch rotation [FIX ME: GamePad Functionality broken]
+     *  
+     */
     private void FixedUpdate()
     {
         thirdRotVal = rotationSmoothing * Time.deltaTime;
@@ -64,6 +70,8 @@ public class Player : MonoBehaviour
         rigiBod.MovePosition (((Vector2) transform.position) + (move * playerSpeed * Time.fixedDeltaTime));
         //flash.SetOrigin(transform.position);
         //flash.SetAimDirection(look);
+        
+        
         /*
         //Debug.Log("Executed the FixedUpdate");
         // FIX ME: FIX THIS FOR ROTATION INPUT
@@ -95,8 +103,8 @@ public class Player : MonoBehaviour
 
     public void Update()
     {
-        flash.SetOrigin(transform.position);
-        flash.SetAimDirection(look);
+        // flash.SetOrigin(transform.position);
+        // flash.SetAimDirection(look);
 
     }
     // SHAHBAZ: Changed to public so that the InputManager Game object can access it easily

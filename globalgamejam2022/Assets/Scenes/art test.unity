@@ -176,6 +176,7 @@ MonoBehaviour:
     m_Bits: 64
   findingTargets: 1
   visibleTargets: []
+  visibleEnemyObjects: []
 --- !u!1 &109635815
 GameObject:
   m_ObjectHideFlags: 0
@@ -335,6 +336,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -3749499960969981926, guid: 49bc6af8f71317a4b946c65196243905, type: 3}
+      propertyPath: speed
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 394245610334430481, guid: 49bc6af8f71317a4b946c65196243905, type: 3}
       propertyPath: m_Name
       value: Enemy (3)
@@ -640,6 +645,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -3749499960969981926, guid: 49bc6af8f71317a4b946c65196243905, type: 3}
+      propertyPath: speed
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 394245610334430481, guid: 49bc6af8f71317a4b946c65196243905, type: 3}
       propertyPath: m_Name
       value: Enemy (4)
@@ -4706,6 +4715,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -3749499960969981926, guid: 49bc6af8f71317a4b946c65196243905, type: 3}
+      propertyPath: speed
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 394245610334430481, guid: 49bc6af8f71317a4b946c65196243905, type: 3}
       propertyPath: m_Name
       value: Enemy (7)
@@ -4830,6 +4843,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -3749499960969981926, guid: 49bc6af8f71317a4b946c65196243905, type: 3}
+      propertyPath: speed
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 394245610334430481, guid: 49bc6af8f71317a4b946c65196243905, type: 3}
       propertyPath: m_Name
       value: Enemy (2)
@@ -5014,6 +5031,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1404315614 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 394245610334430481, guid: 49bc6af8f71317a4b946c65196243905, type: 3}
+  m_PrefabInstance: {fileID: 1641100690}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1404315618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1404315614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c469bd61fd4a5ba47b28a9c2f0a4978e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0.5
+  isVisible: 0
 --- !u!1 &1449384642
 GameObject:
   m_ObjectHideFlags: 0
@@ -5121,6 +5157,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -3749499960969981926, guid: 49bc6af8f71317a4b946c65196243905, type: 3}
+      propertyPath: speed
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 394245610334430481, guid: 49bc6af8f71317a4b946c65196243905, type: 3}
       propertyPath: m_Name
       value: Enemy (6)
@@ -5298,6 +5338,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -3749499960969981926, guid: 49bc6af8f71317a4b946c65196243905, type: 3}
+      propertyPath: speed
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 394245610334430481, guid: 49bc6af8f71317a4b946c65196243905, type: 3}
       propertyPath: m_Name
       value: Enemy (1)
@@ -5645,6 +5689,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -3749499960969981926, guid: 49bc6af8f71317a4b946c65196243905, type: 3}
+      propertyPath: speed
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 394245610334430481, guid: 49bc6af8f71317a4b946c65196243905, type: 3}
       propertyPath: m_Name
       value: Enemy (5)
@@ -5813,6 +5861,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -3749499960969981926, guid: 49bc6af8f71317a4b946c65196243905, type: 3}
+      propertyPath: speed
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 394245610334430481, guid: 49bc6af8f71317a4b946c65196243905, type: 3}
       propertyPath: m_Name
       value: Enemy
@@ -6019,6 +6071,7 @@ MonoBehaviour:
   rigiBod: {fileID: 5114626029098748980}
   playerSpeed: 0
   rotationSmoothing: 1000
+  flash: {fileID: 0}
   lookingDirection: {x: 0, y: 0, z: 0}
   updateRotation: {x: 0, y: 0, z: 0, w: 0}
   thirdRotVal: 0

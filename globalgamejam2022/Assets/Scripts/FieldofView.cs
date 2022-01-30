@@ -14,6 +14,7 @@ public class FieldofView : MonoBehaviour
     public bool findingTargets = true;
 
     public List<Transform> visibleTargets = new List<Transform>();
+    public List <Robot> visibleEnemyObjects = new List <Robot> ();
 
     void Start()
     {
@@ -32,7 +33,8 @@ public class FieldofView : MonoBehaviour
     void FindVisibleTargets()
     {
         visibleTargets.Clear();
-        Collider2D[] targets = Physics2D.OverlapCircleAll(transform.position, viewRadius, targetMask);
+        ClearVisibleEnemyObjects();
+        Collider2D[] targets = Physics2D.OverlapCircleAll(transform.position, viewRadius, targetMask);        
 
         for(int i = 0; i < targets.Length; i++)
         {
@@ -47,6 +49,11 @@ public class FieldofView : MonoBehaviour
                 if(!Physics2D.Raycast(transform.position, directionToTarget, distanceToTarget, obstacleMask))
                 {
                     visibleTargets.Add(target);
+                    if (target.TryGetComponent<Robot>(out Robot rob))
+                    {
+                        visibleEnemyObjects.Add(rob);
+                        rob.updateState(true);
+                    }
                 }
             }
         }
@@ -73,5 +80,13 @@ public class FieldofView : MonoBehaviour
     public void ClearVisibleTargets()
     {
         visibleTargets.Clear();
+    }
+    public void ClearVisibleEnemyObjects()
+    {
+        foreach(Robot rob in visibleEnemyObjects)
+        {
+            rob.updateState(false);
+        }
+        visibleEnemyObjects.Clear();
     }
 }

@@ -6,12 +6,15 @@ public class Robot : MonoBehaviour
 {
     Player player;
     Rigidbody2D rb;
-    [SerializeField] private float speed = .5f;
-
+    [SerializeField] private float speed = 50.0f;
+    [SerializeField] private bool isVisible;
     private void Awake()
     {
+        isVisible = false;
         player = FindObjectOfType<Player>();
         rb = GetComponent<Rigidbody2D>();
+        rb.gravityScale = 0;
+        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
 
     void Start()
@@ -22,12 +25,34 @@ public class Robot : MonoBehaviour
 
     void FixedUpdate()
     {
-        Vector2 heading = player.transform.position - transform.position;
-        var distance = heading.magnitude; // this is a slow calcuation
-        var direction = heading / distance;
+        if (!isVisible)
+        {
+            resetConstraint();
+            Vector2 heading = player.transform.position - transform.position;
+            var distance = heading.magnitude; // this is a slow calcuation
+            var direction = heading / distance;
 
-        if(distance > .5)
             rb.MovePosition((Vector2)transform.position + direction * speed * Time.fixedDeltaTime);
+        }
 
+        if (isVisible)
+        {
+            rb.constraints = RigidbodyConstraints2D.FreezeAll;
+        }
+
+    }
+    public void updateState(bool stateChange)
+    {
+        isVisible = stateChange;
+    }
+    public bool getState()
+    {
+        return isVisible;
+    }
+
+    private void resetConstraint()
+    {
+        rb.constraints = RigidbodyConstraints2D.None;
+        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
 }
