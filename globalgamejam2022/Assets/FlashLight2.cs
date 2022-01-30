@@ -25,14 +25,18 @@ public class FlashLight2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector2 mouseScreenPosition = playerControls.Player.Look.ReadValue<Vector2>();
-        Vector3 mouseWorldPosition = Camera.main.ScreenToWorldPoint(mouseScreenPosition);
 
-        Vector3 directionToMousePosition = mouseWorldPosition - transform.position;
-        float angleToMousePosition = Mathf.Atan2(directionToMousePosition.y, directionToMousePosition.x);
-        angleToMousePosition = angleToMousePosition * Mathf.Rad2Deg;
+        if(GameManager.Instance.isPaused != true)
+        {
+            Vector2 mouseScreenPosition = playerControls.Player.Look.ReadValue<Vector2>();
+            Vector3 mouseWorldPosition = Camera.main.ScreenToWorldPoint(mouseScreenPosition);
 
-        transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, angleToMousePosition));
+            Vector3 directionToMousePosition = mouseWorldPosition - transform.position;
+            float angleToMousePosition = Mathf.Atan2(directionToMousePosition.y, directionToMousePosition.x);
+            angleToMousePosition = angleToMousePosition * Mathf.Rad2Deg;
 
+            transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, angleToMousePosition));
+
+        }
     }
 }

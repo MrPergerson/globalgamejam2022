@@ -43,6 +43,6 @@ public class DialogueManager : MonoBehaviour
 
     public void EndDialogue()
     {
-
+        GameManager.Instance.LoadScene(sceneToTransitionTo);
     }
 }

@@ -155,9 +155,21 @@ MonoBehaviour:
   dialogue:
     name: Boss
     sentences:
-    - Hello there
-    - Hi, how are you
-    - Get to work!!
+    - Play as Diego, an independent contractor hired by San Francisco Dynamic Security.
+      The company, on the verge of bankruptcy, spends their remaining resources into
+      developing security androids designed to serve and protect the populace.
+    - "During a terrible thunder storm, the company\u2019s storage warehouse housing
+      the shipment is struck by lightning and loses power. Diego is sent to examine
+      the facility and the security bots. What began as a standard examination quickly
+      becomes a fight for survival against the very androids meant to protect. "
+    - The robots have gone in threat-analysis mode and will target any bio-organism
+      in the dark. This mode was meant to be turned on at night when the malls turn
+      off their lights to save energy. Shining a light on them however, makes the
+      robots think it is day/working hours and stops the threat-analysis mode.
+    - 'Upon discovering his ability to paralyze them with his flashlight, Diego realizes
+      he must restore power and lights to the warehouse to stop them. Using speed
+      and wits, Diego fights his way to the generators located throughout the warehouse
+      while evading the defective security bots. '
 --- !u!4 &60790844
 Transform:
   m_ObjectHideFlags: 0
@@ -217,6 +229,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameText: {fileID: 0}
   dialogueText: {fileID: 1540413283}
+  sceneToTransitionTo: art test
 --- !u!1 &503061806
 GameObject:
   m_ObjectHideFlags: 0
@@ -644,6 +657,49 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
+--- !u!1 &1264851073
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1264851075}
+  - component: {fileID: 1264851074}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1264851074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1264851073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d815e7e81c780d4c999bfe10e4cff6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1264851075
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1264851073}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 210.79092, y: 428.5035, z: -62.860954}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1342911701
 GameObject:
   m_ObjectHideFlags: 0
@@ -715,8 +771,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -27, y: 151}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 3.9199, y: -15}
+  m_SizeDelta: {x: 326.6241, y: 207.5438}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1540413283
 MonoBehaviour:
@@ -765,8 +821,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 24
+  m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
