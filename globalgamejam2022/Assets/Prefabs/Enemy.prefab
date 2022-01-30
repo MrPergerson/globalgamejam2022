@@ -51,7 +51,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 15ccb79f48768424db96fb4f147b2df3, type: 2}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -186,4 +186,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.5
+  isHunting: 0
   isVisible: 0
+  flashLightTolerance: 2
+  maxTimeInIdle: 5
+  spriteRender: {fileID: 394245609951207448}
+  idleMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  huntingMaterial: {fileID: 2100000, guid: 15ccb79f48768424db96fb4f147b2df3, type: 2}
