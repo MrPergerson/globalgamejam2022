@@ -8,6 +8,8 @@ public class Robot : MonoBehaviour
     Rigidbody2D rb;
     [SerializeField] private float speed = 50.0f;
     [SerializeField] private bool isVisible;
+
+    private Animator enim;
     private void Awake()
     {
         isVisible = false;
@@ -15,6 +17,16 @@ public class Robot : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = 0;
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+
+        try
+        {
+            enim = GetComponentInChildren<Animator>();
+        }
+        catch (System.NullReferenceException e)
+        {
+            Debug.Log("ROBOT.CS: ANIMATOR NOT FOUND!!");
+        }
+
     }
 
     void Start()
@@ -28,6 +40,7 @@ public class Robot : MonoBehaviour
         if (!isVisible)
         {
             resetConstraint();
+            // enim.SetBool("isHunting", true);
             Vector2 heading = player.transform.position - transform.position;
             var distance = heading.magnitude; // this is a slow calcuation
             var direction = heading / distance;
@@ -38,6 +51,7 @@ public class Robot : MonoBehaviour
         if (isVisible)
         {
             rb.constraints = RigidbodyConstraints2D.FreezeAll;
+            // enim.SetBool("isHunting", false);
         }
 
     }

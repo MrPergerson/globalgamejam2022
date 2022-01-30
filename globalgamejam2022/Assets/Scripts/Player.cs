@@ -28,7 +28,8 @@ public class Player : MonoBehaviour
     public Light2D spotLight;
     public Light2D pointLight;
     public FieldofView fov;
-    
+
+    private Animator anim;
 
     void Awake()
     {
@@ -36,7 +37,17 @@ public class Player : MonoBehaviour
         playerInput = GetComponent<PlayerInput>();
         rigiBod = GetComponent<Rigidbody2D>();
         playerSpeed = 5.0f;
-        //flash.SetOrigin(transform.position);
+        // flash.SetOrigin(transform.position);
+        // anim = GetComponent<Sprite>().GetComponent<Animator>();
+        try
+        {
+            anim = GetComponentInChildren<Animator>();
+        }
+        catch (System.NullReferenceException e)
+        {
+            Debug.Log("PLAYER.CS: ANIMATOR NOT FOUND!!");
+        }
+        
     }
 
     private void Start()
@@ -64,14 +75,21 @@ public class Player : MonoBehaviour
      */
     private void FixedUpdate()
     {
+
         thirdRotVal = rotationSmoothing * Time.deltaTime;
         move = playerControls.Player.Move.ReadValue<Vector2>();
         look = playerControls.Player.Look.ReadValue<Vector2>();
         rigiBod.MovePosition (((Vector2) transform.position) + (move * playerSpeed * Time.fixedDeltaTime));
         //flash.SetOrigin(transform.position);
         //flash.SetAimDirection(look);
-        
-        
+        if ((move.x != 0) || (move.y != 0))
+        {
+            anim.SetBool("isWalking", true);
+        }
+        else
+        {
+            anim.SetBool("isWalking", false);
+        }
         /*
         //Debug.Log("Executed the FixedUpdate");
         // FIX ME: FIX THIS FOR ROTATION INPUT
