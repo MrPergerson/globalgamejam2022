@@ -73,9 +73,9 @@ public class Generator : MonoBehaviour
             if (repairProgress >= 1)
             {
  
+                OnGeneratorRepaired?.Invoke();
                 StopRepairing();
-                //OnGeneratorRepaired?.Invoke();
-                GameManager.Instance.EndGame();
+                //GameManager.Instance.EndGame();
             }
         }
     }
@@ -93,10 +93,13 @@ public class Generator : MonoBehaviour
     private void StopRepairing()
     {
         isRepairing = false;
-        player.spotLight.gameObject.SetActive(true);
-        player.pointLight.pointLightOuterRadius = 1f;
-        player.fov.findingTargets = true;
-        player = null;
+        if(player)
+        {
+            player.spotLight.gameObject.SetActive(true);
+            player.pointLight.pointLightOuterRadius = 1f;
+            player.fov.findingTargets = true;
+            player = null;
+        }
     }
 
 }
