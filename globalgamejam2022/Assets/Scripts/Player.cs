@@ -18,7 +18,7 @@ public class Player : MonoBehaviour
     //[SerializeField] private float controllerDeadZone = 0.1f;
     [SerializeField] private float rotationSmoothing = 1000.0f;
 
-    public FlashLight flash;
+    //public FlashLight flash;
 
     //  TEST: temp attribs for debugging
     public Vector3 lookingDirection;
