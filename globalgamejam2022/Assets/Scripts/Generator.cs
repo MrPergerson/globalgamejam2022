@@ -45,7 +45,7 @@ public class Generator : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Player")
+        if(!isRepaired && collision.tag == "Player")
         {
            
             BeginRepairing(collision);
@@ -55,7 +55,7 @@ public class Generator : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if (!isRepaired && collision.tag == "Player")
         {
             StopRepairing();
 
@@ -72,7 +72,7 @@ public class Generator : MonoBehaviour
 
             if (repairProgress >= 1)
             {
- 
+                isRepaired = true;
                 OnGeneratorRepaired?.Invoke();
                 StopRepairing();
                 //GameManager.Instance.EndGame();
