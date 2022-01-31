@@ -58,8 +58,8 @@ public class Player : MonoBehaviour
     private void OnEnable()
     {
         playerControls.Enable();
-
-        //playerInput.onControlsChanged += UpdateCurrentDevice;
+        // TEST: Uncommented for testing script gamepad controls
+        playerInput.onControlsChanged += UpdateCurrentDevice;
     }
 
     private void OnDisable()
